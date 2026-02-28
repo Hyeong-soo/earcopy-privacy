@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EarCopy - Free Music Slow Downer App for iOS | Master Any Song by Ear</title>
+    <meta name="description" content="EarCopy is a 100% free music slow downer app for iPhone and iPad. Slow down music, change pitch, loop sections, and master any song by ear. No ads, no subscription.">
+    <meta name="keywords" content="free slow down music app, ear training app, music practice tool, music slow downer, slow down songs, change pitch, A-B loop, music transcription, learn songs by ear, iOS music app">
+    <meta name="author" content="EarCopy">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://earcopy.app/landing.html">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="EarCopy - Free Music Slow Downer for iOS">
+    <meta property="og:description" content="Master any song by ear. 100% Free. No ads, no subscription. Slow down music, change pitch, loop sections, and more.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://earcopy.app/">
+    <meta property="og:image" content="https://earcopy.app/og-image.png">
+    <meta property="og:site_name" content="EarCopy">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="EarCopy - Free Music Slow Downer for iOS">
+    <meta name="twitter:description" content="Master any song by ear. 100% Free. No ads, no subscription.">
+    <meta name="twitter:image" content="https://earcopy.app/og-image.png">
+
+    <!-- Apple Smart Banner -->
+    <meta name="apple-itunes-app" content="app-id=PLACEHOLDER">
+
+    <style>
+        /* ========== Reset & Base ========== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #1a1a2e;
+            --bg-secondary: #16213e;
+            --bg-card: #1e2a4a;
+            --accent: #FC3C44;
+            --accent-glow: rgba(252, 60, 68, 0.3);
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b8;
+            --text-muted: #6c6c8a;
+            --border: rgba(255, 255, 255, 0.08);
+            --radius: 16px;
+            --radius-sm: 10px;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: opacity var(--transition);
+        }
+
+        a:hover {
+            opacity: 0.85;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        /* ========== Navigation ========== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 16px 0;
+            background: rgba(26, 26, 46, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            transition: background var(--transition);
+        }
+
+        nav .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .nav-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--accent);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+            opacity: 1;
+        }
+
+        /* ========== Hero ========== */
+        .hero {
+            padding: 160px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            pointer-events: none;
+            opacity: 0.4;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            background: rgba(252, 60, 68, 0.12);
+            border: 1px solid rgba(252, 60, 68, 0.25);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 32px;
+            letter-spacing: 0.02em;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.8rem, 7vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.08;
+            letter-spacing: -0.03em;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--accent), #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-tagline {
+            font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+            color: var(--text-secondary);
+            max-width: 540px;
+            margin: 0 auto 44px;
+            line-height: 1.5;
+        }
+
+        .hero-cta {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .app-store-badge img {
+            height: 54px;
+            transition: transform var(--transition);
+        }
+
+        .app-store-badge:hover img {
+            transform: scale(1.05);
+        }
+
+        .hero-sub {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .hero-sub strong {
+            color: var(--text-secondary);
+        }
+
+        /* ========== Waveform Decoration ========== */
+        .waveform-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
+            padding: 24px 0;
+            opacity: 0.3;
+        }
+
+        .waveform-divider span {
+            display: block;
+            width: 3px;
+            background: var(--accent);
+            border-radius: 2px;
+            animation: wave 1.2s ease-in-out infinite;
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: scaleY(1); }
+            50% { transform: scaleY(2.5); }
+        }
+
+        /* ========== Features ========== */
+        .features {
+            background: var(--bg-secondary);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 32px 28px;
+            transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(252, 60, 68, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-icon {
+            width: 52px;
+            height: 52px;
+            background: rgba(252, 60, 68, 0.1);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 18px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.01em;
+        }
+
+        .feature-card p {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            line-height: 1.55;
+        }
+
+        /* ========== Why EarCopy ========== */
+        .why-section {
+            position: relative;
+        }
+
+        .comparison-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .comparison-card {
+            border-radius: var(--radius);
+            padding: 36px 32px;
+            border: 1px solid var(--border);
+        }
+
+        .comparison-card.others {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .comparison-card.earcopy {
+            background: linear-gradient(135deg, rgba(252, 60, 68, 0.08), rgba(252, 60, 68, 0.02));
+            border-color: rgba(252, 60, 68, 0.3);
+            position: relative;
+        }
+
+        .comparison-card.earcopy::before {
+            content: 'BEST VALUE';
+            position: absolute;
+            top: -12px;
+            right: 24px;
+            padding: 4px 14px;
+            background: var(--accent);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            border-radius: 6px;
+        }
+
+        .comparison-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 8px;
+        }
+
+        .comparison-price {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .comparison-card.others .comparison-price {
+            color: var(--text-muted);
+            text-decoration: line-through;
+            text-decoration-color: rgba(252, 60, 68, 0.5);
+        }
+
+        .comparison-card.earcopy .comparison-price {
+            color: var(--accent);
+        }
+
+        .comparison-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .comparison-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+        }
+
+        .comparison-list .icon {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .comparison-card.others .icon {
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--text-muted);
+        }
+
+        .comparison-card.earcopy .icon {
+            background: rgba(252, 60, 68, 0.15);
+            color: var(--accent);
+        }
+
+        .why-bottom-note {
+            text-align: center;
+            margin-top: 48px;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+
+        .why-bottom-note strong {
+            color: var(--text-primary);
+        }
+
+        /* ========== Languages ========== */
+        .languages {
+            background: var(--bg-secondary);
+        }
+
+        .lang-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .lang-pill {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 24px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: border-color var(--transition), transform var(--transition);
+        }
+
+        .lang-pill:hover {
+            border-color: rgba(252, 60, 68, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .lang-flag {
+            font-size: 1.4rem;
+            line-height: 1;
+        }
+
+        /* ========== CTA Banner ========== */
+        .cta-banner {
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .cta-banner h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+        }
+
+        .cta-banner p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 36px;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ========== Footer ========== */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 40px 0;
+        }
+
+        .footer-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .footer-brand .nav-icon {
+            width: 28px;
+            height: 28px;
+            font-size: 0.85rem;
+            border-radius: 6px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            transition: color var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--text-primary);
+            opacity: 1;
+        }
+
+        .footer-copy {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+
+        /* ========== Responsive ========== */
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 0;
+            }
+
+            .hero {
+                padding: 130px 0 70px;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .comparison-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-card.earcopy {
+                order: -1;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* ========== Animations ========== */
+        @media (prefers-reduced-motion: no-preference) {
+            .feature-card,
+            .lang-pill,
+            .comparison-card {
+                opacity: 0;
+                transform: translateY(20px);
+                animation: fadeUp 0.6s ease forwards;
+            }
+
+            .feature-card:nth-child(1) { animation-delay: 0.05s; }
+            .feature-card:nth-child(2) { animation-delay: 0.1s; }
+            .feature-card:nth-child(3) { animation-delay: 0.15s; }
+            .feature-card:nth-child(4) { animation-delay: 0.2s; }
+            .feature-card:nth-child(5) { animation-delay: 0.25s; }
+            .feature-card:nth-child(6) { animation-delay: 0.3s; }
+
+            .lang-pill:nth-child(1) { animation-delay: 0.05s; }
+            .lang-pill:nth-child(2) { animation-delay: 0.1s; }
+            .lang-pill:nth-child(3) { animation-delay: 0.15s; }
+            .lang-pill:nth-child(4) { animation-delay: 0.2s; }
+            .lang-pill:nth-child(5) { animation-delay: 0.25s; }
+
+            @keyframes fadeUp {
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .waveform-divider span:nth-child(1) { animation-delay: 0s; }
+            .waveform-divider span:nth-child(2) { animation-delay: 0.1s; }
+            .waveform-divider span:nth-child(3) { animation-delay: 0.2s; }
+            .waveform-divider span:nth-child(4) { animation-delay: 0.3s; }
+            .waveform-divider span:nth-child(5) { animation-delay: 0.4s; }
+            .waveform-divider span:nth-child(6) { animation-delay: 0.3s; }
+            .waveform-divider span:nth-child(7) { animation-delay: 0.2s; }
+            .waveform-divider span:nth-child(8) { animation-delay: 0.1s; }
+            .waveform-divider span:nth-child(9) { animation-delay: 0s; }
+            .waveform-divider span:nth-child(10) { animation-delay: 0.15s; }
+            .waveform-divider span:nth-child(11) { animation-delay: 0.25s; }
+            .waveform-divider span:nth-child(12) { animation-delay: 0.35s; }
+            .waveform-divider span:nth-child(13) { animation-delay: 0.25s; }
+            .waveform-divider span:nth-child(14) { animation-delay: 0.15s; }
+            .waveform-divider span:nth-child(15) { animation-delay: 0.05s; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="nav-brand">
+                <div class="nav-icon" aria-hidden="true">&#9835;</div>
+                EarCopy
+            </div>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#why">Why EarCopy</a></li>
+                <li><a href="#languages">Languages</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-badge">
+                &#10003; 100% Free &mdash; No Ads, No Subscription
+            </div>
+            <h1>
+                <span class="highlight">Master any song</span><br>by ear
+            </h1>
+            <p class="hero-tagline">
+                The music slow downer that gives you everything you need to learn, transcribe, and practice songs &mdash; completely free.
+            </p>
+            <div class="hero-cta">
+                <a href="https://apps.apple.com/app/earcopy" class="app-store-badge" aria-label="Download EarCopy on the App Store">
+                    <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us" alt="Download on the App Store">
+                </a>
+                <p class="hero-sub">Available for <strong>iPhone</strong> and <strong>iPad</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Waveform Divider -->
+    <div class="waveform-divider" aria-hidden="true">
+        <span style="height:12px"></span>
+        <span style="height:20px"></span>
+        <span style="height:32px"></span>
+        <span style="height:24px"></span>
+        <span style="height:40px"></span>
+        <span style="height:28px"></span>
+        <span style="height:36px"></span>
+        <span style="height:16px"></span>
+        <span style="height:44px"></span>
+        <span style="height:20px"></span>
+        <span style="height:32px"></span>
+        <span style="height:48px"></span>
+        <span style="height:28px"></span>
+        <span style="height:18px"></span>
+        <span style="height:10px"></span>
+    </div>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Features</div>
+                <h2 class="section-title">Everything you need to learn by ear</h2>
+                <p class="section-subtitle">Professional-grade tools in a beautifully simple interface</p>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">&#12336;</div>
+                    <h3>Waveform Display</h3>
+                    <p>See the structure of your music at a glance. Navigate visually, pinch to zoom, and tap to seek to any position instantly.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">&#9202;</div>
+                    <h3>Speed &amp; Pitch Control</h3>
+                    <p>Slow down from 25% to 200% without affecting pitch. Transpose pitch up or down independently in semitone steps.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">&#128257;</div>
+                    <h3>A-B Loop</h3>
+                    <p>Set loop points on any section and repeat it endlessly. Perfect for drilling tricky passages until you nail them.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">&#128278;</div>
+                    <h3>Bookmarks</h3>
+                    <p>Mark important sections like verses, choruses, and solos. Jump back to any bookmark with a single tap.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">&#127926;</div>
+                    <h3>Equalizer</h3>
+                    <p>Isolate or reduce instruments with the built-in EQ. Boost the bass line, cut the vocals, or highlight the melody.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">&#63743;</div>
+                    <h3>Apple Music Support</h3>
+                    <p>Load songs directly from your Apple Music library. No file importing, no workarounds &mdash; just pick a song and go.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why EarCopy Section -->
+    <section class="why-section" id="why">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Why EarCopy?</div>
+                <h2 class="section-title">Premium features, zero cost</h2>
+                <p class="section-subtitle">Other slow downer apps charge $10&ndash;$50. EarCopy gives you everything for free.</p>
+            </div>
+
+            <div class="comparison-wrapper">
+                <div class="comparison-card others">
+                    <div class="comparison-label">Other Apps</div>
+                    <div class="comparison-price">$10 &ndash; $50</div>
+                    <ul class="comparison-list">
+                        <li><span class="icon">&#10003;</span> Speed control</li>
+                        <li><span class="icon">&#10003;</span> Pitch shifting</li>
+                        <li><span class="icon">&#10003;</span> Looping</li>
+                        <li><span class="icon">&#10007;</span> Ads &amp; nag screens</li>
+                        <li><span class="icon">&#10007;</span> Paywalled features</li>
+                        <li><span class="icon">&#10007;</span> Subscription required</li>
+                    </ul>
+                </div>
+
+                <div class="comparison-card earcopy">
+                    <div class="comparison-label">EarCopy</div>
+                    <div class="comparison-price">$0</div>
+                    <ul class="comparison-list">
+                        <li><span class="icon">&#10003;</span> Speed control</li>
+                        <li><span class="icon">&#10003;</span> Pitch shifting</li>
+                        <li><span class="icon">&#10003;</span> A-B Looping</li>
+                        <li><span class="icon">&#10003;</span> No ads ever</li>
+                        <li><span class="icon">&#10003;</span> All features unlocked</li>
+                        <li><span class="icon">&#10003;</span> Free forever</li>
+                    </ul>
+                </div>
+            </div>
+
+            <p class="why-bottom-note">
+                No trials. No limits. No catch. <strong>Just practice.</strong>
+            </p>
+        </div>
+    </section>
+
+    <!-- Languages Section -->
+    <section class="languages" id="languages">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Global</div>
+                <h2 class="section-title">Available in 5 languages</h2>
+                <p class="section-subtitle">Practice music in the language you think in</p>
+            </div>
+
+            <div class="lang-grid">
+                <div class="lang-pill">
+                    <span class="lang-flag" aria-hidden="true">&#127468;&#127463;</span>
+                    English
+                </div>
+                <div class="lang-pill">
+                    <span class="lang-flag" aria-hidden="true">&#127472;&#127479;</span>
+                    Korean
+                </div>
+                <div class="lang-pill">
+                    <span class="lang-flag" aria-hidden="true">&#127471;&#127477;</span>
+                    Japanese
+                </div>
+                <div class="lang-pill">
+                    <span class="lang-flag" aria-hidden="true">&#127464;&#127475;</span>
+                    Chinese
+                </div>
+                <div class="lang-pill">
+                    <span class="lang-flag" aria-hidden="true">&#127466;&#127480;</span>
+                    Spanish
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="cta-banner">
+        <div class="container">
+            <h2>Start learning songs today</h2>
+            <p>Download EarCopy and unlock your musical potential &mdash; completely free.</p>
+            <a href="https://apps.apple.com/app/earcopy" class="app-store-badge" aria-label="Download EarCopy on the App Store">
+                <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us" alt="Download on the App Store">
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <div class="nav-icon" aria-hidden="true">&#9835;</div>
+                EarCopy
+            </div>
+            <ul class="footer-links">
+                <li><a href="index.html">Privacy Policy</a></li>
+                <li><a href="support.html">Support</a></li>
+            </ul>
+            <p class="footer-copy">&copy; 2026 EarCopy. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
