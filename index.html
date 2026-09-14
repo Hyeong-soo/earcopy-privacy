@@ -12,25 +12,27 @@ h1 { color: #FC3C44; } h2 { color: #555; margin-top: 2em; }
 </head>
 <body>
 <h1>EarCopy Privacy Policy</h1>
-<p class="date">Effective Date: February 27, 2026</p>
+<p class="date">Updated for EarCopy 1.1: September 14, 2026</p>
 
 <h2>Overview</h2>
 <p>EarCopy ("the App") is a music practice tool developed by Hyeong-soo Kim. We respect your privacy and are committed to protecting your personal data.</p>
 
 <h2>Data Collection</h2>
-<p>EarCopy does <strong>not</strong> collect, store, or transmit any personal data to external servers. All data remains on your device.</p>
+<p>EarCopy does not operate an account system or send your practice history to a developer-operated server. Imported audio, saved lyrics, bookmarks, and practice settings are stored on your device. Online music playback and lyrics lookup contact the services described below.</p>
 
 <h2>What the App Accesses</h2>
 <ul>
-<li><strong>Apple Music Library</strong>: If you grant permission, EarCopy accesses your Apple Music library to browse and play songs for practice. This data is only used locally and is never transmitted.</li>
+<li><strong>Apple Music Library</strong>: If you grant permission, EarCopy accesses your Apple Music library to browse and play songs for practice. Playback and artwork use Apple's services. A selected song's metadata may also be used to find lyrics as described below.</li>
 <li><strong>Local Audio Files</strong>: You may import audio files from the Files app. These files are stored locally within the app's sandbox.</li>
+<li><strong>Lyrics Lookup</strong>: When lyrics are needed for an imported or selected song, EarCopy may automatically send its title, artist, album name (when available), and duration to LRCLIB over HTTPS. Retrying a lookup also sends this metadata. EarCopy does not upload your audio file, imported lyrics, or bookmarks to LRCLIB. Like other internet services, LRCLIB receives connection information such as your IP address.</li>
 </ul>
 
 <h2>Data Storage</h2>
-<p>Song metadata (titles, artists, bookmarks, practice settings) is stored locally on your device using SwiftData. No data is synced to cloud services by the app.</p>
+<p>Song metadata, saved lyrics, bookmarks, and practice settings are stored locally on your device using SwiftData. EarCopy does not synchronize this library to a developer-operated cloud service. If you use the Apple Watch companion, playback state and bookmark names are shared with your paired Watch using Apple's WatchConnectivity framework.</p>
 
 <h2>Third-Party Services</h2>
 <p>EarCopy does not use any third-party analytics, advertising, or tracking services.</p>
+<p>Optional Apple Music functionality uses Apple's services. Online lyrics are provided by <a href="https://lrclib.net">LRCLIB</a>, a separate service whose processing is outside the developer's control. You can also import an LRC file or enter lyrics yourself; saved lyrics remain available on your device.</p>
 
 <h2>Children's Privacy</h2>
 <p>EarCopy does not knowingly collect any personal information from children.</p>
